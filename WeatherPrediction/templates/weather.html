@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Weather</title>
+</head>
+<body>
+    <div class="container" style="width: 500px;height: 650px; background-image: linear-gradient(#89cff092, #66c8efe3);border-radius: 5%;">
+
+      <form method="post" class="col-md">  
+        {% csrf_token %}  
+        <div class="mb-1" >
+
+          <label class="form-label"  style="float: left;font-family: cursive;padding-top: 10px;">Choose your City</label>
+          <input type="text" class="form-control" name="city" placeholder="City ">
+          
+          <div class="input-group-btn"> 
+          <button type="submit" class="btn btn-outline-secondary"style=" margin-top:10px; font-size: 17px;color: black;">Search</button>
+          <button type="button" class="btn btn-outline-secondary" style="margin-top:10px; float: right;">
+            <a href="logout" style="font-size: 17px;color: black;">Logout</a>
+          </button>
+          </div>
+        </div>  
+      <form> 
+        
+      <br>
+      <h6 style="font-family: Georgia, 'Times New Roman', Times, serif;">{{city}}</h6>
+      <h6 style="font-family: Georgia, 'Times New Roman', Times, serif;">{{current_time}}</h6>
+      <h2 style="font-family: Georgia, 'Times New Roman', Times, serif;">{{temp}}</h2>
+      <br>
+      <h5 style="font-family: cursive;">Current details</h5>
+      <h6 style="font-family: Georgia, 'Times New Roman', Times, serif;">Humidity   {{humidity}}%</h6>
+      <h6 style="font-family: Georgia, 'Times New Roman', Times, serif;">Pressure   {{pressure}} mBar</h6><br>
+
+      <h5 style="font-family: cursive;">Forecast</h5>  
+      <ul class="forecast-list" style="font-family: Georgia, 'Times New Roman', Times, serif;">
+        {% for forecast_item in forecast %}
+            <li>{{ forecast_item.dt_txt }}   {{ forecast_item.main.temp }}°</li>
+        {% endfor %}
+      </ul>
+    </div>
+    
+       
+</body>
+</html>
+<style>
+  body
+  {
+      display: flex;
+      padding-top: 30px;;
+      margin-bottom: 32px;
+      background-image: linear-gradient(#89cff089, #66c8efac);
+  }
+
+  .forecast-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+
+</style>

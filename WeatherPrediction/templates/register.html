@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>SignUp</title>
+</head>
+<body>
+  <div class="container" style="width: 400px;">
+    <div class="row row-cols-1 row-cols-md-1 g-5 " style="margin-top: 87px; margin-left: 50px;">
+    <div class="card" style="width: 18rem; box-shadow: 10px 10px rgba(56, 52, 52, 0.553);padding-bottom: 10px;">
+      <div class="container" style="background-image: linear-gradient(#602a82cc,#3849a0bc); height: 150px;width: 286px;">
+        <p style="margin-top: 50px; color: white;font-family: cursive;">"Unleash the weather's wonders, sign up and explore!"</p>
+    </div>
+            <form method = "post">
+                {% csrf_token %}
+                <div class="mb-3">
+                  <label for="username" class="form-label"  style="float: left; padding-top: 10px;">Username</label>
+                  <input type="text" class="form-control" name="username" placeholder="Enter your username">
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label" style="float: left;">Password</label>
+                  <input type="password" class="form-control" name="password1" placeholder="Enter your password">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label" style="float: left;">Confirm Password</label>
+                    <input type="password" class="form-control" name="password2" placeholder="Confirm your password">
+                  </div>
+                <button type="submit" class="btn btn-outline-secondary">Submit</button>
+              </form>
+            
+        </div>
+    </div>
+    </div>
+      
+</body>
+</html>
+
+<style>
+  body
+  {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      padding-top: 12px;
+      background-image: linear-gradient(#602a829f,#3849a09e);
+      margin-bottom:148px;
+  }
+
+</style>
